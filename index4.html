@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>나는 비가 싫어</title>
+	 <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+</head>
+<style type="text/css">
+	body, h1, p{margin: 0; padding: 0;  }
+
+		.map2{height:100px; ;}
+		.wrap{width: 100%; height:100%;  position: relative;  }
+
+		body::-webkit-scrollbar{display: none;}
+		body{font-family: 'Jua', sans-serif; position: relative; }
+	    #back{background: url(img2/back.png); background-size: cover; background-attachment: fixed; position: relative; }
+
+	    
+
+	      #ha{position: fixed; left: 29%; top: 8%;  z-index: 999;font-size: 260%; color:white; text-shadow: -3px 0 black, 0 4px black, 4px 0 black, 0 -4px black;}
+	      #hb{position: fixed; font-size: 160%;   z-index: 999; left: 39%; top:12%;}
+
+		.wrap img{position: absolute; padding-top: 4.5%; }
+	     #a1{ z-index: 995; width: 50%; }
+	     #a2{ z-index: 995; width: 50%; left: 47%; }
+	     #a3{ z-index: 995; width: 50%; left: 93.3%; }
+	     #a4{z-index: 995; width: 50%; left: 139.5%;}
+
+	     .aa1:hover{opacity: 0.8;}
+	     .aa2:hover{opacity: 0.8;}
+	     .aa3:hover{opacity: 0.8;}
+	     .aa4:hover{opacity: 0.8;}
+
+	     #b1{z-index: 995; width: 6.5%; left: 187%; padding-top: 20%;}
+	     .nb:hover{opacity: 0.8;}
+
+		
+
+</style>
+		
+<body id="back">
+	<section class="map2">
+	</section>
+
+	<section class="wrap">
+		<h1 id="ha">이미지를 클릭해 달라진 학교를 구경해보세요</h1>
+		  <h3 id="hb"> ← → 방향키로 움직여보세요!  </h3>
+
+		  <img src="img2/4-1.png" id="a1" class="aa1">
+		  <img src="img2/4-3.png" id="a2" class="aa2">
+		  <img src="img2/4-5.png" id="a3" class="aa3">
+		  <img src="img2/4-7.png" id="a4" class="aa4">
+		 <a href="./index4_5.html"> <img src="img2/next.png"  class="nb" id="b1"> </a>
+	</section>
+
+	<section class="map2">
+	</section>
+
+	<script type="text/javascript">
+		var a1state ="off";
+		a1.onclick=function(){
+			if(a1state =="off"){
+			a1.src = "img2/4-2.png";
+			a1state = "on";}
+			else{
+				a1.src = "img2/4-1.png";
+				a1state = "off";}}
+
+		var a2state ="off";
+		a2.onclick=function(){
+			if(a2state =="off"){
+			a2.src = "img2/4-4.png";
+			a2state = "on";}
+			else{
+				a2.src = "img2/4-3.png";
+				a2state = "off";}}
+
+		var a3state ="off";
+		a3.onclick=function(){
+			if(a3state =="off"){
+			a3.src = "img2/4-6.png";
+			a3state = "on";}
+			else{
+				a3.src = "img2/4-5.png";
+				a3state = "off";}}
+
+		var a4state ="off";
+		a4.onclick=function(){
+			if(a4state =="off"){
+			a4.src = "img2/4-8.png";
+			a4state = "on";}
+			else{
+				a4.src = "img2/4-7.png";
+				a4state = "off";}}
+	</script>
+</body>
+</html>

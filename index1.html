@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html><head>
+
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+    <title>나는 비가 싫어</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/image-puzzle.css" rel="stylesheet">
+    <script src="js/image-puzzle.js"></script>
+
+
+    <style type="text/css">
+body::-webkit-scrollbar{display: none;}
+        body{font-family: 'Jua', sans-serif; position: relative; }
+        h1, p{text-align: center; margin-top: 21.440px; margin-bottom: 15px;}
+        h1{font-size: 3.5em; color:white; outline-style: dashed; text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black; z-index: 999; position: relative; }
+
+        p{font-size: 15px; margin: auto;}
+        li{ position: relative;}
+        h3{margin: 0; padding-bottom: 35px; font-size: 1.5em;  position: relative; z-index: 999;}
+        h4{font-size: 23px; color: #ed147c;}
+        #back{background: url(img2/back.png); background-size: cover; background-attachment: fixed; position: relative; }
+        #sing{position: absolute; top: 52px; left: 280px; width: 140px; height: auto; opacity: 0;}
+
+        #levelPanel{position: relative; margin: 0; padding-top: 10px; padding-bottom: 10px; z-index: 999;}
+        
+
+        .rain{width: 4px; height: 40px; position: fixed; background: #6f9dcc; z-index: 999;
+            animation: rr 1s infinite ease-in; z-index: 888;}
+        .rain:hover{height: 400px;}
+        
+        @keyframes rr{from{bottom: 800px;} to{bottom: 0px;}}
+
+        .return1:hover{opacity: 0.5;}
+    .next:hover{opacity: 0.5;}
+     </style>
+
+</head>
+<body id="back">
+<div class="rain" id="tt"></div>
+    <div id="collage">
+        <h1> 학교를 원래 모습으로 맞춰주세요.</h1>
+        
+        <h3> 이미지 조각을 '드래그 앤 드롭'해서 그림을 맞춰주세요 </h3>
+
+        <h4 id="sing">노래</h4>
+        <audio loop id="song">
+            <source src="song.mp3" type="audio/mpeg">
+        </audio>
+
+ 
+       
+    <div style="position: relative; background-color: #ffffff; width: 1000px; height: 500px; opacity: 0.5; left: calc(50% - 500px); top: -10px; z-index: 998;"></div>
+            <div style=" position: relative; display:inline-block; margin:auto; width:100%; vertical-align:top; align-items: center; padding-top: 12px; left: calc(50% - 500px); z-index: 999; ">
+
+                
+                <ul id="sortable" class="sortable" style="position: relative; top: -500px;" >
+
+                
+                </ul>
+
+
+                <div id="actualImageBox" style="position: relative; top: -500px;">
+                    <div id="stepBox">
+                        <div>이동 횟수 :</div>
+                        <div id="stepCount" class="stepCount" >0</div>
+                    </div>
+                    <div id="timeBox">
+                        플레이 시간 : <span id="timerPanel">37</span> 초
+                    </div><br><br>
+                    <img id="actualImage">
+                    
+                    <p id="levelPanel">
+                        <input type="radio" name="level" id="easy" checked="checked" value="3" onchange="imagePuzzle.startGame(images, this.value);"> <label for="easy">&nbsp;하급</label>&nbsp;&nbsp;&nbsp;
+                       
+                    </p>
+                    <div style="padding-top: 15px;">
+                       
+                        <button class="return1" type="button" onclick="restart();" style="background-color: black; position: relative; left: calc(50% - 70px);">다시하기</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="gameOver" style="display:none;">
+            <div style="background-color: #00000; padding: 25px 10px 20px 10px; text-align: center; margin-top: 30px;">
+                <h2 style="text-align:center">!성공!
+                <br><br> 이동 횟수 : <span id="stepCount" class="stepCount">0</span> 번
+                <br> 플레이 시간 : <span class="timeCount">0</span> 초<br><br>
+                <div>
+                    <button type="button" class="return1" style="background-color: black; margin-top: 12px;" onclick="window.location.reload(true);">다시하기</button>
+                   <a href="./index2.html"> <button type="button" class="next" style="background-color: #00d2ff; margin-top: 12px;" onclick="window.location.reload(true);  ">다음 </button></a>
+                </div>
+            </h2></div>
+        </div>
+
+        <script>
+
+            sing.onclick = function() {
+            song.play();
+            }
+            
+            var images = [
+                { src: 'images/1.png' },
+               
+            ];
+
+            
+            window.onload = function () {
+                var gridSize = document.querySelector('#levelPanel input[type="radio"]:checked').getAttribute('value');
+                imagePuzzle.startGame(images, gridSize);
+            };
+            function restart() {
+                var gridSize = document.querySelector('#levelPanel input[type="radio"]:checked').getAttribute('value');
+                    imagePuzzle.startGame(images, gridSize);
+            }
+        
+         for(var i=0; i<50; i++){
+
+            var b =tt.cloneNode(true);
+            b.id = i;
+            b.clssName = "rain";
+            b.style.left = Math.random()*window.innerWidth + "px";
+            b.style.height = Math.random()*50 +"px";
+            b.style.animationDuration = Math.random()*1 + "s";
+            b.style.background = "#6f9dcc";
+            
+            document.body.appendChild(b);
+            }
+
+        </script>
+    </div>
+
+</body></html>

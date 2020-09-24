@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>i hate rain</title>
+	<link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+	<style type="text/css">
+	body::-webkit-scrollbar{display: none;}
+
+		body, h1, p{margin: 0; padding: 0; }
+		body{ background-color: #676767; overflow-y: hidden;}
+		.map2{height:100px; }
+		.wrap{width: 100%; height:100%;  position: relative; padding-top: 100%;  font-family: 'Jua', sans-serif; background-color: #676767;}
+
+
+		.rain{width: 3px; height: 40px; position: fixed; background: #6f9dcc; z-index: 997;
+			animation: rr 1s infinite ease-in; }
+		.rain:hover{height: 400px;}
+		
+		@keyframes rr{from{bottom: 800px;} to{bottom: 0px;}}
+	
+
+		.wrap img{position: absolute; }
+		#ha{font-size: 200%; z-index: 999; position: absolute; top: -2%; left: 5%; color:white; text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black;}
+		
+		#monitor{position: fixed; background: black; padding:5%; top: 0%; right: 0%; color: white; width: 3%; z-index: 990; font-size: 5%; opacity: 0;}
+
+		#walk{position: fixed; height: 42%; top:62%; left: 20%; z-index: 999; z-index: }
+		#a1{width: 219%;  top: -10%; z-index: 990;}
+		#a2{ width: 31.5%; top: 17%; left: 158.5%; opacity: 0; z-index: 998;}
+		
+
+		#a2:hover {opacity: 0.5;}
+
+			
+	</style>
+</head>
+<body id="back">
+	<section class="map2">
+	</section>
+	<section class="wrap">
+
+		<div class="rain" id="tt"></div>
+		<h1 id="ha">* 술집을 찾아보자!</h1>
+
+		
+		<img src="img2/5.png" id="a1">
+		<a href="https://hk-jiheekim.github.io/i-hate-rain_part3/"><img src="img2/5-1.png" class="b"  id="a2"></a>
+
+		<img src="img2/i.gif" class="a" id="walk">
+		<div id="monitor"></div>
+		
+	</section>
+<section class="map2">
+	</section>
+<script type="text/javascript">
+	window.onscroll = function(){
+		var t = document.documentElement.scrollLeft +
+		document.body.scrollLeft;
+		monitor.innerHTML = t.toFixed(1);
+
+		
+
+	
+
+
+	}
+
+	for(var i=0; i<50; i++){
+
+			var b =tt.cloneNode(true);
+			b.id = i;
+			b.clssName = "rain";
+			b.style.left = Math.random()*window.innerWidth + "px";
+			b.style.height = Math.random()*45 +"px";
+			b.style.animationDuration = Math.random()*2.5 + "s";
+			b.style.background = "#6f9dcc";
+			
+			document.body.appendChild(b);
+			}
+
+	window.onkeydown = function(){
+		if (event.keyCode == 37){
+			walk.src = "img2/i.gif";
+			walk.style.transform = "rotateY(180deg)";
+		}
+		else if (event.keyCode == 39){
+			walk.src = "img2/i.gif";
+			walk.style.transform = "rotateY(0deg)";
+		}
+
+	}
+</script>
+</body>
+</html>
