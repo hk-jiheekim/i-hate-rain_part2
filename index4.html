@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>나는 비가 싫어</title>
+	<title>i hate rain</title>
+
+	<link rel="shortcut icon" href="/파비.ico" type="image/x-icon">
+	<link rel="icon" href="/파비.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="파비.ico" type="image/x-icon">
+	<link rel="icon" href="/파비.ico" type="image/x-icon">
+	
 	 <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
 </head>
 <style type="text/css">
@@ -13,13 +19,21 @@
 		body::-webkit-scrollbar{display: none;}
 		body{font-family: 'Jua', sans-serif; position: relative; }
 	    #back{background: url(img2/back.png); background-size: cover; background-attachment: fixed; position: relative; }
-
+ .rain{width: 3px; height: 40px; position: fixed; background: #6f9dcc; z-index: 999;
+            animation: rr 1s infinite ease-in; z-index: 888;}
+        .rain:hover{height: 400px;}
+        
+        @keyframes rr{from{bottom: 800px;} to{bottom: 0px;}}
 	    
 
-	      #ha{position: fixed; left: 29%; top: 8%;  z-index: 999;font-size: 260%; color:white; text-shadow: -3px 0 black, 0 4px black, 4px 0 black, 0 -4px black;}
-	      #hb{position: fixed; font-size: 160%;   z-index: 999; left: 39%; top:12%;}
+	    #img4{z-index: 999; width: 12.5%; top: 82%; left:87%; opacity: 0.9; cursor: pointer; position: fixed;}
+        #img4:hover{opacity: 0.5;}
 
-		.wrap img{position: absolute; padding-top: 4.5%; }
+
+	      #ha{font-size: 3.5em; position: fixed; left: 29%; top: 8%;  z-index: 999;font-size: 260%; color:white; text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;}
+	      #hb{position: fixed; font-size: 1.8em;   z-index: 999; left: 39%; top:12%;}
+
+		.wrap img{position: absolute; padding-top: 4.5%; cursor: pointer;}
 	     #a1{ z-index: 995; width: 50%; }
 	     #a2{ z-index: 995; width: 50%; left: 47%; }
 	     #a3{ z-index: 995; width: 50%; left: 93.3%; }
@@ -38,6 +52,7 @@
 </style>
 		
 <body id="back">
+	<div class="rain" id="tt"></div>
 	<section class="map2">
 	</section>
 
@@ -50,6 +65,9 @@
 		  <img src="img2/4-5.png" id="a3" class="aa3">
 		  <img src="img2/4-7.png" id="a4" class="aa4">
 		 <a href="./index4_5.html"> <img src="img2/next.png"  class="nb" id="b1"> </a>
+
+		  <a href="https://hk-jiheekim.github.io/i-hate-rain_part1/"><img src="img2/logo.png" class="lo" id="img4"></a>
+
 	</section>
 
 	<section class="map2">
@@ -91,6 +109,20 @@
 			else{
 				a4.src = "img2/4-7.png";
 				a4state = "off";}}
+
+		 for(var i=0; i<50; i++){
+
+            var b =tt.cloneNode(true);
+            b.id = i;
+            b.clssName = "rain";
+            b.style.left = Math.random()*window.innerWidth + "px";
+            b.style.height = Math.random()*45 +"px";
+            b.style.animationDuration = Math.random()*2 + "s";
+            b.style.background = "#6f9dcc";
+            
+            document.body.appendChild(b);
+            }
+
 	</script>
 </body>
 </html>

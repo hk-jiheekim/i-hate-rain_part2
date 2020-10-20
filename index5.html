@@ -2,6 +2,11 @@
 <html>
 <head>
 	<title>i hate rain</title>
+
+	<link rel="shortcut icon" href="/파비.ico" type="image/x-icon">
+	<link rel="icon" href="/파비.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="파비.ico" type="image/x-icon">
+	<link rel="icon" href="/파비.ico" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
 	<style type="text/css">
 	body::-webkit-scrollbar{display: none;}
@@ -27,9 +32,14 @@
 		#walk{position: fixed; height: 42%; top:62%; left: 20%; z-index: 999; z-index: }
 		#a1{width: 219%;  top: -10%; z-index: 990;}
 		#a2{ width: 31.5%; top: 17%; left: 158.5%; opacity: 0; z-index: 998;}
-		
-
 		#a2:hover {opacity: 0.5;}
+
+		#img4{z-index: 9999; width: 12.5%; top: 90%; left:87%; opacity: 0.9; cursor: pointer; position: fixed;}
+        #img4:hover{opacity: 0.5;}
+
+        .of1{position: absolute; width: 4%; z-index: 999; top: 0.5%; left: 6%; cursor: pointer; }
+		.of1:hover{opacity: 0.5;}
+
 
 			
 	</style>
@@ -41,10 +51,14 @@
 
 		<div class="rain" id="tt"></div>
 		<h1 id="ha">* 술집을 찾아보자!</h1>
+		<img src="img2/off.png" id="of" class="of1">
+		<audio src="rain.flac" loop id="aa" ></audio>
 
 		
 		<img src="img2/5.png" id="a1">
 		<a href="https://hk-jiheekim.github.io/i-hate-rain_part3/"><img src="img2/5-1.png" class="b"  id="a2"></a>
+
+		<a href="https://hk-jiheekim.github.io/i-hate-rain_part1/"><img src="img2/logo.png" class="lo" id="img4"></a>
 
 		<img src="img2/i.gif" class="a" id="walk">
 		<div id="monitor"></div>
@@ -53,6 +67,18 @@
 <section class="map2">
 	</section>
 <script type="text/javascript">
+
+	var ofstate ="off";
+		of.onclick=function(){
+			if(ofstate =="off"){
+			of.src = "img2/on.png";
+			aa.play();
+			ofstate = "on";}
+			else{
+				of.src = "img2/off.png";
+				aa.pause();
+				ofstate = "off";}}
+
 	window.onscroll = function(){
 		var t = document.documentElement.scrollLeft +
 		document.body.scrollLeft;
@@ -72,7 +98,7 @@
 			b.clssName = "rain";
 			b.style.left = Math.random()*window.innerWidth + "px";
 			b.style.height = Math.random()*45 +"px";
-			b.style.animationDuration = Math.random()*2.5 + "s";
+			b.style.animationDuration = Math.random()*2 + "s";
 			b.style.background = "#6f9dcc";
 			
 			document.body.appendChild(b);

@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html><head>
+    <link rel="shortcut icon" href="/파비.ico" type="image/x-icon">
+    <link rel="icon" href="/파비.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="파비.ico" type="image/x-icon">
+    <link rel="icon" href="/파비.ico" type="image/x-icon">
 
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
-    <title>나는 비가 싫어</title>
+    <title>i hate rain</title>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/image-puzzle.css" rel="stylesheet">
     <script src="js/image-puzzle.js"></script>
@@ -13,19 +17,23 @@
 body::-webkit-scrollbar{display: none;}
         body{font-family: 'Jua', sans-serif; position: relative; }
         h1, p{text-align: center; margin-top: 21.440px; margin-bottom: 15px;}
-        h1{font-size: 3.5em; color:white; outline-style: dashed; text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black; z-index: 999; position: relative; }
+        h1{font-size: 3.5em; color:white; outline-style: dashed; text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black; z-index: 999; position: relative; }
 
         p{font-size: 15px; margin: auto;}
-        li{ position: relative;}
-        h3{margin: 0; padding-bottom: 35px; font-size: 1.5em;  position: relative; z-index: 999;}
+        li{ position: relative; cursor: pointer;}
+        li:hover{opacity: 0.7;}
+        h3{margin: 0; padding-bottom: 35px; font-size: 1.8em;  position: relative; z-index: 999;}
         h4{font-size: 23px; color: #ed147c;}
         #back{background: url(img2/back.png); background-size: cover; background-attachment: fixed; position: relative; }
         #sing{position: absolute; top: 52px; left: 280px; width: 140px; height: auto; opacity: 0;}
 
-        #levelPanel{position: relative; margin: 0; padding-top: 10px; padding-bottom: 10px; z-index: 999;}
-        
 
-        .rain{width: 4px; height: 40px; position: fixed; background: #6f9dcc; z-index: 999;
+
+        #levelPanel{position: relative; margin: 0; padding-top: 10px; padding-bottom: 10px; z-index: 999;}
+        #img4{z-index: 9999; width: 12.5%; top: 90%; left:87%; opacity: 0.9; cursor: pointer; position: fixed;}
+        #img4:hover{opacity: 0.5;}
+
+        .rain{width: 5px; height: 40px; position: fixed; background: #6f9dcc; z-index: 999;
             animation: rr 1s infinite ease-in; z-index: 888;}
         .rain:hover{height: 400px;}
         
@@ -33,21 +41,26 @@ body::-webkit-scrollbar{display: none;}
 
         .return1:hover{opacity: 0.5;}
     .next:hover{opacity: 0.5;}
+
+    button{cursor: pointer;}
+    .of1{position: absolute; width: 4%; z-index: 999; top: 0.5%; left: 6%; cursor: pointer; }
+        .of1:hover{opacity: 0.5;}
+    
      </style>
 
 </head>
 <body id="back">
 <div class="rain" id="tt"></div>
     <div id="collage">
-        <h1> 학교를 원래 모습으로 맞춰주세요.</h1>
+        <h1> 학교를 원래 모습으로 만들어주세요!</h1>
         
-        <h3> 이미지 조각을 '드래그 앤 드롭'해서 그림을 맞춰주세요 </h3>
+        <h3> 퍼즐 조각을 계속 누른 상태로 원하는 곳에 놓아주세요 </h3>
+        <img src="img2/off.png" id="of" class="of1">
+        <audio src="song.mp3" loop id="aa" ></audio>
 
-        <h4 id="sing">노래</h4>
-        <audio loop id="song">
-            <source src="song.mp3" type="audio/mpeg">
-        </audio>
 
+        
+        <a href="https://hk-jiheekim.github.io/i-hate-rain_part1/"><img src="img2/logo.png" class="lo" id="img4"></a>
  
        
     <div style="position: relative; background-color: #ffffff; width: 1000px; height: 500px; opacity: 0.5; left: calc(50% - 500px); top: -10px; z-index: 998;"></div>
@@ -71,7 +84,7 @@ body::-webkit-scrollbar{display: none;}
                     <img id="actualImage">
                     
                     <p id="levelPanel">
-                        <input type="radio" name="level" id="easy" checked="checked" value="3" onchange="imagePuzzle.startGame(images, this.value);"> <label for="easy">&nbsp;하급</label>&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="level" id="easy" checked="checked" value="2" onchange="imagePuzzle.startGame(images, this.value);"> <label for="easy">&nbsp;하급</label>&nbsp;&nbsp;&nbsp;
                        
                     </p>
                     <div style="padding-top: 15px;">
@@ -96,9 +109,17 @@ body::-webkit-scrollbar{display: none;}
 
         <script>
 
-            sing.onclick = function() {
-            song.play();
-            }
+            
+            var ofstate ="off";
+        of.onclick=function(){
+            if(ofstate =="off"){
+            of.src = "img2/on.png";
+            aa.play();
+            ofstate = "on";}
+            else{
+                of.src = "img2/off.png";
+                aa.pause();
+                ofstate = "off";}}
             
             var images = [
                 { src: 'images/1.png' },
@@ -121,12 +142,13 @@ body::-webkit-scrollbar{display: none;}
             b.id = i;
             b.clssName = "rain";
             b.style.left = Math.random()*window.innerWidth + "px";
-            b.style.height = Math.random()*50 +"px";
+            b.style.height = Math.random()*45 +"px";
             b.style.animationDuration = Math.random()*1 + "s";
             b.style.background = "#6f9dcc";
             
             document.body.appendChild(b);
             }
+
 
         </script>
     </div>
